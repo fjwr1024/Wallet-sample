@@ -36,16 +36,11 @@ const Page: NextPage = () => {
   } = useForm<SignupFormType>();
 
   const router = useRouter();
-  const [showPassword, setShowPassword] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(true);
-  const toggleCheckbox = () => {
-    setIsDisabled((prevState) => !prevState);
-  };
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const onSubmit = (data: SignupFormType) => {
     console.log('data', data);
+    // router.push('/nextpage');
   };
 
   return (
