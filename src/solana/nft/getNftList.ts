@@ -5,7 +5,7 @@ import { Metaplex } from '@solana-suite/nft';
 export const getNftMetadata = async (mint: any[]) => {
   const mintArr = mint.map((obj) => obj.mint);
 
-  const response = [];
+  const response: never[] = [];
 
   // TODO: loop内で await を利用するとパフォーマンス低下するので、mapやPromise.allを用いて改善する
   // https://note.com/shift_tech/n/nc00ff7e03539
@@ -19,7 +19,7 @@ export const getNftMetadata = async (mint: any[]) => {
     );
     const merged: object = { ...metadata.unwrap(), ...mint[i] };
 
-    response.push(merged);
+    response.push(merged as never);
   }
   console.log('arr', response);
   return response;
