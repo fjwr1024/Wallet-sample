@@ -9,7 +9,6 @@ import {
   FormLabel,
   Input,
   InputGroup,
-  HStack,
   InputRightElement,
   Stack,
   Button,
@@ -17,18 +16,37 @@ import {
   Text,
   useColorModeValue,
   Link,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
-type LoginFormType = {
+type SignupFormType = {
   email: string;
   password: string;
 };
 
 const Page: NextPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignupFormType>();
+
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const toggleCheckbox = () => {
+    setIsDisabled((prevState) => !prevState);
+  };
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const onSubmit = (data: SignupFormType) => {
+    console.log('data', data);
+  };
 
   return (
     <Fragment>
@@ -45,11 +63,8 @@ const Page: NextPage = () => {
           <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
             <Stack align={'center'}>
               <Heading fontSize={'4xl'} textAlign={'center'}>
-                Sign up Wallet
+                Sign up Solana Wallet
               </Heading>
-              <Text fontSize={'lg'} color={'gray.600'}>
-                example wallet
-              </Text>
             </Stack>
             <Box
               rounded={'lg'}
@@ -58,15 +73,27 @@ const Page: NextPage = () => {
               p={8}
             >
               <Stack spacing={4}>
-                <form>
-                  <FormControl id="email" isRequired>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <FormControl id="email">
                     <FormLabel>Email address</FormLabel>
-                    <Input type="email" />
+                    <Input
+                      type="email"
+                      placeholder="Email Address"
+                      {...register('email', { required: true })}
+                    />
+                    {errors.email && (
+                      <Text fontSize="14" color="red" mt="2">
+                        Email Is Required
+                      </Text>
+                    )}
                   </FormControl>
-                  <FormControl id="password" isRequired pt={5}>
+                  <FormControl id="password" pt={5}>
                     <FormLabel>Password</FormLabel>
                     <InputGroup>
-                      <Input type={showPassword ? 'text' : 'password'} />
+                      <Input
+                        type={showPassword ? 'text' : 'password'}
+                        {...register('password', { required: true })}
+                      />
                       <InputRightElement h={'full'}>
                         <Button
                           variant={'ghost'}
@@ -78,9 +105,15 @@ const Page: NextPage = () => {
                         </Button>
                       </InputRightElement>
                     </InputGroup>
+                    {errors.email && (
+                      <Text fontSize="14" color="red" mt="2">
+                        Password Is Required
+                      </Text>
+                    )}
                   </FormControl>
                   <Stack spacing={10} pt={8}>
                     <Button
+                      type="submit"
                       loadingText="Submitting"
                       size="lg"
                       bg={'blue.400'}
