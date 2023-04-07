@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import {
   Flex,
   Box,
@@ -16,31 +16,34 @@ import {
   Text,
   useColorModeValue,
   Link,
-  useDisclosure,
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
-type SignupFormType = {
-  email: string;
-  password: string;
-};
+import { useMutateAuth } from '@/hooks/useQueryAuth';
+import { Signup } from '@/types/Signup';
 
 const Page: NextPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignupFormType>();
+  } = useForm<Signup>();
 
   const router = useRouter();
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const { useQueryCsrf, useQuerySignup } = useMutateAuth();
 
-  const onSubmit = (data: SignupFormType) => {
+  // api側の設定が面倒なので一旦コメントアウト
+  // useQueryCsrf();
+
+  const onSubmit = (data: Signup) => {
     console.log('data', data);
-    // router.push('/nextpage');
+    useQuerySignup.mutate({
+      email: data.email,
+      password: data.password,
+    });
   };
 
   return (
@@ -57,7 +60,7 @@ const Page: NextPage = () => {
         >
           <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
             <Stack align={'center'}>
-              <Heading fontSize={'4xl'} textAlign={'center'}>
+              <Heading fontSize={'3xl'} textAlign={'center'}>
                 Sign up Solana Wallet
               </Heading>
             </Stack>
@@ -87,6 +90,7 @@ const Page: NextPage = () => {
                     <InputGroup>
                       <Input
                         type={showPassword ? 'text' : 'password'}
+                        placeholder="Password"
                         {...register('password', {
                           required: {
                             value: true,

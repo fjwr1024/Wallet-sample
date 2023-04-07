@@ -1,49 +1,54 @@
 import { Signup } from './../types/Signup.d';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { Login } from '@/types/Login';
+import router from 'next/router';
 
-const getCsrf = async () => {
-  const { data } = await axios.get<string>(
-    `${process.env.NEXT_PUBLIC_LOCAL_API_URL}/auth/csrf`
+export const useMutateAuth = () => {
+  const getCsrf = async () => {
+    const { data } = await axios.get<string>(
+      `${process.env.NEXT_PUBLIC_LOCAL_API_URL}/auth/csrf`
+    );
+    axios.defaults.headers.common['X-XSRF-TOKEN'] = data;
+    return data;
+  };
+
+  const useQueryCsrf = () =>
+    useQuery<string, Error>({
+      queryKey: ['getCsrf'],
+      queryFn: getCsrf,
+      cacheTime: 10000,
+      staleTime: 0,
+    });
+
+  const useQueryLogin = async () => {
+    const { data } = await axios.post<Login>(
+      `${process.env.NEXT_PUBLIC_LOCAL_API_URL}/auth/login`
+    );
+    return data;
+  };
+
+  const useQuerySignup = useMutation(
+    async (signupData: Signup) => {
+      const { data } = await axios.post<Signup>(
+        `${process.env.NEXT_PUBLIC_LOCAL_API_URL}/auth/signup`,
+        signupData
+      );
+      return data;
+    },
+    {
+      onSuccess: (res) => {
+        console.log('success', res);
+        router.push('/');
+      },
+      onError: (err: any) => {
+        if (err.response.status) {
+          console.log('error', err.response.data.message);
+          router.push('/signup/confirm');
+        }
+      },
+    }
   );
-  return data;
+
+  return { useQueryCsrf, useQueryLogin, useQuerySignup };
 };
-
-export const useQueryCsrf = () =>
-  useQuery<string, Error>({
-    queryKey: ['getCsrf'],
-    queryFn: getCsrf,
-    cacheTime: 10000,
-    staleTime: 0,
-  });
-
-const login = async () => {
-  const { data } = await axios.post<Login>(
-    `${process.env.NEXT_PUBLIC_LOCAL_API_URL}/auth/login`
-  );
-  return data;
-};
-
-export const useQueryLogin = () =>
-  useQuery<Login, Error>({
-    queryKey: ['login'],
-    queryFn: login,
-    cacheTime: 10000,
-    staleTime: 0,
-  });
-
-const signup = async () => {
-  const { data } = await axios.post<Signup>(
-    `${process.env.NEXT_PUBLIC_LOCAL_API_URL}/auth/signup`
-  );
-  return data;
-};
-
-export const useQuerySignup = () =>
-  useQuery<Signup, Error>({
-    queryKey: ['signup'],
-    queryFn: signup,
-    cacheTime: 10000,
-    staleTime: 0,
-  });
