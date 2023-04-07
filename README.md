@@ -4,7 +4,7 @@ Next.js(ver13) solana-suite を用いたウォレットシステムサンプル
 
 ## ディレクトリ構成
 
-components のみ
+そのうち追記
 
 ### 環境構築
 
@@ -14,20 +14,20 @@ components のみ
 git@github.com:Fujiwara-Ken/Wallet-sample.git
 ```
 
-## 2. `npm install`
+## 2. `yarn install`
 
-`npm install`
-
-```shell
-npm -v
-
-npm install
-```
-
-## 3. `npm run dev`
-
-`npm run dev`でローカルサーバーを立ち上げ。
+`yarn install`
 
 ```bash
-npm run dev
+yarn -v
+
+yarn install
+```
+
+## 3. `yarn dev`
+
+`yarn dev`でローカルサーバーを立ち上げ。
+
+```bash
+yarn dev
 ```
