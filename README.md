@@ -2,9 +2,30 @@
 
 Next.js(ver13) solana-suite を用いたウォレットシステムサンプル
 
+## stack
+
+- React
+- Typescriot
+- scss
+
 ## ディレクトリ構成
 
-そのうち追記
+必要に応じて追加予定
+
+- components  
+  各コンポーネント配置用
+- solana  
+  solana-suiteに関わるロジック
+- pages  
+  各ページ配置用
+- hooks  
+  汎用的なhooks
+- types  
+  独自の型定義ファイル
+- styles  
+  global style, colorなど。chakraのthemeなども
+- utils  
+  便利系の関数とかを入れておくところ
 
 ### 環境構築
 
