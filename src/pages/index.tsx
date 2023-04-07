@@ -92,7 +92,16 @@ const Page: NextPage = () => {
                     <InputGroup>
                       <Input
                         type={showPassword ? 'text' : 'password'}
-                        {...register('password', { required: true })}
+                        {...register('password', {
+                          required: {
+                            value: true,
+                            message: 'Password is Required',
+                          },
+                          minLength: {
+                            value: 8,
+                            message: 'Password must be at least 8 characters',
+                          },
+                        })}
                       />
                       <InputRightElement h={'full'}>
                         <Button
@@ -105,9 +114,9 @@ const Page: NextPage = () => {
                         </Button>
                       </InputRightElement>
                     </InputGroup>
-                    {errors.email && (
+                    {errors.password && (
                       <Text fontSize="14" color="red" mt="2">
-                        Password Is Required
+                        {errors.password.message}
                       </Text>
                     )}
                   </FormControl>
