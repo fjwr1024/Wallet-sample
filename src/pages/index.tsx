@@ -40,6 +40,7 @@ const Page: NextPage = () => {
 
   const onSubmit = (data: Signup) => {
     console.log('data', data);
+    // 下記3行はapi server ないと動かないのでコメントアウトしてよい
     useQuerySignup.mutate({
       email: data.email,
       password: data.password,

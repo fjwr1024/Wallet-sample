@@ -39,12 +39,11 @@ export const useMutateAuth = () => {
     {
       onSuccess: (res) => {
         console.log('success', res);
-        router.push('/');
+        router.push('/signup/confirm');
       },
       onError: (err: any) => {
         if (err.response.status) {
           console.log('error', err.response.data.message);
-          router.push('/signup/confirm');
         }
       },
     }
