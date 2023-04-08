@@ -14,7 +14,7 @@ const Page: NextPage = () => {
         <title>Home</title>
       </Head>
       <main>
-        <p>home</p>
+        <p>home画面</p>
         <div>
           <ul>
             {user &&
@@ -24,6 +24,7 @@ const Page: NextPage = () => {
                 </li>
               ))}
           </ul>
+          <p>wallet Address: {user?.walletAddress}</p>
         </div>
       </main>
     </Fragment>
