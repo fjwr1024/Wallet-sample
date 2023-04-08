@@ -75,12 +75,3 @@ yarn dev
 
 ## Local Access
 http://localhost:3000
-
-## ブランチ名ルール
-
-| ブランチ名 | 役割                     | 派生元  | マージ先         | 
-| ---------- | ------------------------ | ------- | ---------------- | 
-| main       | 本番公開用              |         |                  | 
-| develop    | 開発中のものを配置 一旦テスト環境も兼ねる       | main  | main           | 
-| feature/   | 新機能開発中に使う       | develop | develop          | 
-| hotfix/    | 公開中のもののバグ修正用 | master  | develop / master | 
