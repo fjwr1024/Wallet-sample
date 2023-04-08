@@ -1,8 +1,8 @@
-import { Signup } from '../types/Signup.d';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { Login } from '@/types/Login';
 import router from 'next/router';
+import { Signup } from '../types/Signup.d';
+import { Login } from '@/types/Login';
 
 export const useMutateAuth = () => {
   const getCsrf = async () => {

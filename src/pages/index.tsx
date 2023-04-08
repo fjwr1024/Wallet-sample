@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   Link,
 } from '@chakra-ui/react';
+import axios from 'axios';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -37,13 +38,17 @@ const Page: NextPage = () => {
   // api側の設定が面倒なので一旦コメントアウト
   // useQueryCsrf();
 
-  const onSubmit = (data: Signup) => {
+  const onSubmit = async (data: Signup) => {
     console.log('data', data);
-    // 下記3行はapi server ないと動かないのでコメントアウトしてよい
-    useQuerySignup.mutate({
-      email: data.email,
-      password: data.password,
-    });
+    try {
+      await axios.post(`http://localhost:3000/auth/login`, {
+        email: data.email,
+        password: data.password,
+      });
+      router.push('/home');
+    } catch (e: any) {
+      console.log(e.response.data.message);
+    }
   };
 
   return (
@@ -61,7 +66,7 @@ const Page: NextPage = () => {
           <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
             <Stack align="center">
               <Heading fontSize="3xl" textAlign="center">
-                Sign up Solana Wallet
+                Login Solana Wallet
               </Heading>
             </Stack>
             <Box
@@ -131,12 +136,12 @@ const Page: NextPage = () => {
                         bg: 'blue.500',
                       }}
                     >
-                      Sign up
+                      Login
                     </Button>
                   </Stack>
                   <Stack pt={6}>
                     <Text align="center">
-                      Already a user? <Link color="blue.400">Login</Link>
+                      Is not user? <Link color="blue.400">Signup</Link>
                     </Text>
                   </Stack>
                 </form>
