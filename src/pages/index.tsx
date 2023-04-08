@@ -22,14 +22,14 @@ import React, { Fragment, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 import { useMutateAuth } from '@/hooks/useQueryAuth';
-import { Signup } from '@/types/Signup';
+import { Login } from '@/types/Login';
 
 const Page: NextPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Signup>();
+  } = useForm<Login>();
 
   const router = useRouter();
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -38,7 +38,7 @@ const Page: NextPage = () => {
   // api側の設定が面倒なので一旦コメントアウト
   // useQueryCsrf();
 
-  const onSubmit = async (data: Signup) => {
+  const onSubmit = async (data: Login) => {
     console.log('data', data);
     try {
       await axios.post(`http://localhost:3000/auth/login`, {
@@ -47,7 +47,7 @@ const Page: NextPage = () => {
       });
       router.push('/home');
     } catch (e: any) {
-      console.log(e.response.data.message);
+      console.log(e.response);
     }
   };
 
