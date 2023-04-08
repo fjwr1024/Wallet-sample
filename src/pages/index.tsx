@@ -1,7 +1,4 @@
-import { NextPage } from 'next';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { Fragment, useEffect, useState } from 'react';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import {
   Flex,
   Box,
@@ -17,9 +14,11 @@ import {
   useColorModeValue,
   Link,
 } from '@chakra-ui/react';
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { NextPage } from 'next';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import React, { Fragment, useState } from 'react';
 
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutateAuth } from '@/hooks/useQueryAuth';
 import { Signup } from '@/types/Signup';
@@ -54,21 +53,21 @@ const Page: NextPage = () => {
       </Head>
       <main>
         <Flex
-          minH={'100vh'}
-          align={'center'}
-          justify={'center'}
+          minH="100vh"
+          align="center"
+          justify="center"
           bg={useColorModeValue('gray.50', 'gray.800')}
         >
-          <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-            <Stack align={'center'}>
-              <Heading fontSize={'3xl'} textAlign={'center'}>
+          <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
+            <Stack align="center">
+              <Heading fontSize="3xl" textAlign="center">
                 Sign up Solana Wallet
               </Heading>
             </Stack>
             <Box
-              rounded={'lg'}
+              rounded="lg"
               bg={useColorModeValue('white', 'gray.700')}
-              boxShadow={'lg'}
+              boxShadow="lg"
               p={8}
             >
               <Stack spacing={4}>
@@ -103,10 +102,11 @@ const Page: NextPage = () => {
                           },
                         })}
                       />
-                      <InputRightElement h={'full'}>
+                      <InputRightElement h="full">
                         <Button
-                          variant={'ghost'}
+                          variant="ghost"
                           onClick={() =>
+                            // eslint-disable-next-line no-shadow
                             setShowPassword((showPassword) => !showPassword)
                           }
                         >
@@ -125,8 +125,8 @@ const Page: NextPage = () => {
                       type="submit"
                       loadingText="Submitting"
                       size="lg"
-                      bg={'blue.400'}
-                      color={'white'}
+                      bg="blue.400"
+                      color="white"
                       _hover={{
                         bg: 'blue.500',
                       }}
@@ -135,8 +135,8 @@ const Page: NextPage = () => {
                     </Button>
                   </Stack>
                   <Stack pt={6}>
-                    <Text align={'center'}>
-                      Already a user? <Link color={'blue.400'}>Login</Link>
+                    <Text align="center">
+                      Already a user? <Link color="blue.400">Login</Link>
                     </Text>
                   </Stack>
                 </form>

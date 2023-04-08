@@ -1,4 +1,4 @@
-import { Signup } from './../types/Signup.d';
+import { Signup } from '../types/Signup.d';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { Login } from '@/types/Login';
