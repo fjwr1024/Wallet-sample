@@ -2,7 +2,10 @@ import { atom } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
 import { User } from '../types/User';
 
-const { persistAtom } = recoilPersist();
+const { persistAtom } = recoilPersist({
+  key: 'recoil-persist',
+  storage: typeof window === 'undefined' ? undefined : localStorage,
+});
 
 export const userState = atom<User | undefined>({
   key: 'userState',

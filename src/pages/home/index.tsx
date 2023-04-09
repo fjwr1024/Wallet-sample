@@ -2,20 +2,13 @@ import { Progress } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Fragment, useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { Fragment } from 'react';
 import { useQueryUser } from '@/hooks/useQueryUser';
-import { userState } from '@/stores/atoms';
 
 const Page: NextPage = () => {
-  const { data: user, status } = useQueryUser();
-  const setUser = useSetRecoilState(userState);
+  const { useQueryUserData } = useQueryUser();
+  const { data: user, status } = useQueryUserData();
   console.log('user', user);
-  useEffect(() => {
-    if (status === 'success' && user) {
-      setUser(user);
-    }
-  }, [user, setUser, status]);
   if (status === 'loading') return <Progress my="lg" color="cyan" />;
 
   return (
