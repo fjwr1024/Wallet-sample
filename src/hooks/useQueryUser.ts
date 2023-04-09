@@ -27,10 +27,10 @@ export const useQueryUser = () => {
     });
 
   const useQueryGetSol = useMutation(
-    async (walletAddress: any) => {
+    async (walletAddress: string) => {
       const { data } = await axios.post<string>(
         `${process.env.NEXT_PUBLIC_LOCAL_API_URL}/users/get-sol`,
-        walletAddress
+        { walletAddress }
       );
       return data;
     },
