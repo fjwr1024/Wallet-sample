@@ -32,6 +32,12 @@ const Page: NextPage = () => {
           <Text>user: {user?.id}</Text>
           <Text>user: {user?.email}</Text>
           <Button onClick={handleGetSol}>Get Sol</Button>
+          {solData && (
+            <div>
+              <h2>Sol Information</h2>
+              <p>Sol: {solData.sol}</p>
+            </div>
+          )}
         </Box>
       </main>
     </Fragment>
