@@ -1,12 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-
-type PriceData = {
-  solana: {
-    usd: number;
-    jpy: number;
-  };
-};
+import { PriceData } from '@/types/Solana';
 
 export const useFetchPriceData = () => {
   const [priceData, setPriceData] = useState<PriceData | undefined>(undefined);

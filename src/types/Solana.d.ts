@@ -4,3 +4,9 @@ export type PriceData = {
     jpy: number;
   };
 };
+
+export type SolNativeData = {
+  sol: number;
+  lamports: number;
+  owner: string;
+};

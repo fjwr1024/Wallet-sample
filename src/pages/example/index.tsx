@@ -13,6 +13,7 @@ const Page: NextPage = () => {
         <title>example</title>
       </Head>
       <main>
+        <p>example get user list</p>
         <Box>
           <UnorderedList>
             {user &&

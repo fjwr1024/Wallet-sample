@@ -1,32 +1,32 @@
-import { Box, Heading, Progress, Text, Button } from '@chakra-ui/react';
+/* eslint-disable no-unused-expressions */
+import { Box, Heading, Progress, Text } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useQueryUser } from '@/hooks/useQueryUser';
+import { SolNativeData } from '@/types/Solana';
 import { SOL_RATE } from '@/utils/constValue';
-
-type SolData = {
-  sol: number;
-  lamports: number;
-  owner: string;
-};
 
 const Page: NextPage = () => {
   const { useQueryUserData, useQueryGetSol } = useQueryUser();
   const { data: user, status } = useQueryUserData();
-  const [solData, setSolData] = useState<SolData | string | undefined>(
+  const [solData, setSolData] = useState<SolNativeData | string | undefined>(
     undefined
   );
 
-  const handleGetSol = () => {
-    if (!user) return;
-    useQueryGetSol.mutate(user.walletAddress, {
-      onSuccess: (data) => {
-        setSolData(data);
-      },
-    });
-  };
+  useEffect(() => {
+    if (user?.walletAddress) {
+      useQueryGetSol.mutate(user.walletAddress, {
+        onSuccess: (
+          data: React.SetStateAction<string | SolNativeData | undefined>
+        ) => {
+          setSolData(data);
+        },
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   if (status === 'loading') return <Progress my="lg" color="cyan" />;
 
@@ -41,7 +41,6 @@ const Page: NextPage = () => {
           <Text>wallet Address: {user?.walletAddress}</Text>
           <Link href="/nft">nft画面へ</Link>
 
-          <Button onClick={handleGetSol}>Get Sol</Button>
           {solData && typeof solData !== 'string' && (
             <React.Fragment>
               <Box>
