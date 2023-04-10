@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { Fragment, useEffect, useState } from 'react';
+import QRCodeGenerator from '@/components/QRCodeGenerator';
 import { useQueryUser } from '@/hooks/useQueryUser';
 import { SolNativeData } from '@/types/Solana';
 import { SOL_RATE } from '@/utils/constValue';
@@ -39,7 +40,7 @@ const Page: NextPage = () => {
         <Heading>Home画面</Heading>
         <Box>
           <Text>wallet Address: {user?.walletAddress}</Text>
-          <Link href="/nft">nft画面へ</Link>
+          <QRCodeGenerator qrText={user?.walletAddress as string} />
 
           {solData && typeof solData !== 'string' && (
             <React.Fragment>
@@ -55,6 +56,9 @@ const Page: NextPage = () => {
                 <Text>
                   JPY: {(solData.sol * SOL_RATE.solana.jpy).toFixed(2)}
                 </Text>
+              </Box>
+              <Box mt={10}>
+                <Link href="/nft">nft画面へ</Link>
               </Box>
             </React.Fragment>
           )}
