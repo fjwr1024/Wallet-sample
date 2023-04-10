@@ -46,5 +46,25 @@ export const useQueryUser = () => {
     }
   );
 
-  return { useQueryUserData, useQueryGetSol };
+  const useQueryGetNFT = useMutation(
+    async (walletAddress: string) => {
+      const { data } = await axios.post<string>(
+        `${process.env.NEXT_PUBLIC_LOCAL_API_URL}/nft/get-list`,
+        { walletAddress }
+      );
+      return data;
+    },
+    {
+      // onSuccess: (res) => {
+      //   console.log('success', res);
+      // },
+      onError: (err: any) => {
+        if (err.response.status) {
+          console.log('error', err.response.data.message);
+        }
+      },
+    }
+  );
+
+  return { useQueryUserData, useQueryGetSol, useQueryGetNFT };
 };
