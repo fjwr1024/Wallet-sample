@@ -6,3 +6,7 @@ updates:
       interval: "daily"
       timezone: "Asia/Tokyo"
     open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: "typescript"
+        versions:
+          - "5.x"
