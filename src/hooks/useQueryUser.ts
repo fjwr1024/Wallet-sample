@@ -55,9 +55,6 @@ export const useQueryUser = () => {
       return data;
     },
     {
-      // onSuccess: (res) => {
-      //   console.log('success', res);
-      // },
       onError: (err: any) => {
         if (err.response.status) {
           console.log('error', err.response.data.message);
