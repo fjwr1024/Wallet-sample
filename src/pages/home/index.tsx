@@ -1,5 +1,11 @@
 /* eslint-disable no-unused-expressions */
-import { Box, Heading, Progress, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Progress,
+  Text,
+  Link as ChakraLink,
+} from '@chakra-ui/react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -63,6 +69,18 @@ const Page: NextPage = () => {
               </Box>
             </React.Fragment>
           )}
+
+          <Box>
+            {user?.walletAddress && (
+              <ChakraLink
+                color="blue"
+                href={`https://solscan.io/account/${user.walletAddress}?cluster=devnet`}
+                isExternal
+              >
+                View on Solscan your Wallet
+              </ChakraLink>
+            )}
+          </Box>
         </Box>
       </main>
     </Fragment>
