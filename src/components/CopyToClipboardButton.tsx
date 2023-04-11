@@ -1,4 +1,3 @@
-// components/CopyToClipboardButton.tsx
 import { CopyIcon } from '@chakra-ui/icons';
 import { Text, Box, useToast, IconButton } from '@chakra-ui/react';
 import React, { useState } from 'react';

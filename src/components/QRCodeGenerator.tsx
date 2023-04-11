@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import QRCode from 'qrcode.react';
 import React from 'react';
 
