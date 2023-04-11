@@ -7,7 +7,7 @@ const { persistAtom } = recoilPersist({
   storage: typeof window === 'undefined' ? undefined : localStorage,
 });
 
-export const userState = atom<User | undefined>({
+export const userState = atom<User | undefined | null>({
   key: 'userState',
   default: undefined,
   effects_UNSTABLE: [persistAtom],
