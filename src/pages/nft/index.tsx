@@ -15,6 +15,8 @@ const Page: NextPage = () => {
   useEffect(() => {
     console.log('useeffect');
     if (user?.walletAddress) {
+      console.log('in if ');
+
       const nft = useQueryGetNFT.mutate(user.walletAddress, {
         onSuccess: (data) => {
           console.log('data', data);
