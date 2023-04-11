@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { Fragment, useEffect, useState } from 'react';
+import CopyToClipboardButton from '@/components/CopyToClipboardButton';
 import QRCodeGenerator from '@/components/QRCodeGenerator';
 import { useQueryUser } from '@/hooks/useQueryUser';
 import { SolNativeData } from '@/types/Solana';
@@ -39,8 +40,8 @@ const Page: NextPage = () => {
       <main>
         <Heading>Home画面</Heading>
         <Box>
-          <Text>wallet Address: {user?.walletAddress}</Text>
           <QRCodeGenerator qrText={user?.walletAddress as string} />
+          <CopyToClipboardButton textToCopy={user?.walletAddress as string} />
 
           {solData && typeof solData !== 'string' && (
             <React.Fragment>

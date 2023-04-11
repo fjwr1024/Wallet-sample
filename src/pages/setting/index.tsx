@@ -16,6 +16,9 @@ const Page: NextPage = () => {
       <main>
         <Box>
           <Text>Setting Page</Text>
+          <Text>パスワード変更</Text>
+          <Text>EMail 変更</Text>
+          <Text>Wallet 再生成？</Text>
         </Box>
       </main>
     </Fragment>
