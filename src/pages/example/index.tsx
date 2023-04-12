@@ -5,8 +5,8 @@ import { Fragment } from 'react';
 import { useQueryUser } from '@/hooks/useQueryUser';
 
 const Page: NextPage = () => {
-  const { useQueryUserData, useQueryGetSol } = useQueryUser();
-  const { data: user, status } = useQueryUserData();
+  const { useQueryUserData } = useQueryUser();
+  const { data: user } = useQueryUserData();
   return (
     <Fragment>
       <Head>
