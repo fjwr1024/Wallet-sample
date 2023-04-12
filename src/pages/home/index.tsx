@@ -27,7 +27,7 @@ const Page: NextPage = () => {
     if (user?.walletAddress) {
       useQueryGetSol.mutate(user.walletAddress, {
         onSuccess: (
-          data: React.SetStateAction<string | SolNativeData | undefined>
+          data: React.SetStateAction<SolNativeData | string | undefined>
         ) => {
           setSolData(data);
         },
