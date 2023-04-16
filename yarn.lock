@@ -1818,7 +1818,16 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz#8be36a1f66f3265389e90b5f9c9962146758f728"
   integrity sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==
 
-"@solana-suite/core@^0.5.10", "@solana-suite/core@latest":
+"@solana-suite/core@^0.5.11":
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/@solana-suite/core/-/core-0.5.11.tgz#7ce62db98851c6bac37e64ce0d618e5f67e4485b"
+  integrity sha512-De1fyGlzCRyG08Ly2vI41zBzs7NCuDsRQOImGJ/X/6GXKkzM1MLejvYrV3qYKVdHhJ61DP2vnr3iHWgEGQl80A==
+  dependencies:
+    "@solana-suite/shared" latest
+    "@solana-suite/shared-metaplex" latest
+    "@solana-suite/storage" latest
+
+"@solana-suite/core@latest":
   version "0.5.10"
   resolved "https://registry.yarnpkg.com/@solana-suite/core/-/core-0.5.10.tgz#3ddbd6f347d7f333f88690445628060bff0201c7"
   integrity sha512-znxI86ogAs9a2udrYc9tyOe3GYQM9EcsIrv8lUTpqlVmARuU1F4WnTFBiglyUZ9vqsubzwfddxVkjLD+B7jXKQ==
