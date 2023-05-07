@@ -1844,7 +1844,15 @@
     "@metaplex-foundation/mpl-token-metadata" "^2.9.1"
     "@solana-suite/shared" latest
 
-"@solana-suite/shared@^0.5.10", "@solana-suite/shared@latest":
+"@solana-suite/shared@^0.5.12":
+  version "0.5.12"
+  resolved "https://registry.yarnpkg.com/@solana-suite/shared/-/shared-0.5.12.tgz#897d933c8b7dc96864b41792b0dc0657e29198cf"
+  integrity sha512-3FckzLH2JXTvNHtLEO2hYDKZBHSfgLrr0O2RIlEwDv4Xgi9o5T/SZhDIn6ewjKh26tRTdTsufZWsDApLPz0QzQ==
+  dependencies:
+    "@solana/web3.js" "^1.73.2"
+    commander "9.3.0"
+
+"@solana-suite/shared@latest":
   version "0.5.10"
   resolved "https://registry.yarnpkg.com/@solana-suite/shared/-/shared-0.5.10.tgz#3a4f6ec0e83cc9c21d10c5765c11f5db132b34d5"
   integrity sha512-/leV6B3XFn3q6tIU5uOVca/MA8B2Su8jOjpRRcR0V/KplvZ7x73L/W6R18IPSgKzlBl/brKKwS8W7+o/T/oO6Q==
