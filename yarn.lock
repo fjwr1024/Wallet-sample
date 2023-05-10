@@ -1890,7 +1890,16 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz#8be36a1f66f3265389e90b5f9c9962146758f728"
   integrity sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==
 
-"@solana-suite/core@^0.5.10", "@solana-suite/core@latest":
+"@solana-suite/core@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@solana-suite/core/-/core-0.6.0.tgz#274a63932818b4d92067a24c13a081111ecc23ee"
+  integrity sha512-ITfrWGXRLj2DOhnLTX+z9CvGzCmCQ5AIKAePPJmIA9kbvo05lIigfh9/0/DxgqrECqc/lBogYxAAN0c5ArkUJg==
+  dependencies:
+    "@solana-suite/shared" latest
+    "@solana-suite/shared-metaplex" latest
+    "@solana-suite/storage" latest
+
+"@solana-suite/core@latest":
   version "0.5.10"
   resolved "https://registry.yarnpkg.com/@solana-suite/core/-/core-0.5.10.tgz#3ddbd6f347d7f333f88690445628060bff0201c7"
   integrity sha512-znxI86ogAs9a2udrYc9tyOe3GYQM9EcsIrv8lUTpqlVmARuU1F4WnTFBiglyUZ9vqsubzwfddxVkjLD+B7jXKQ==
@@ -1917,7 +1926,15 @@
     "@metaplex-foundation/mpl-token-metadata" "^2.9.1"
     "@solana-suite/shared" latest
 
-"@solana-suite/shared@^0.5.10", "@solana-suite/shared@latest":
+"@solana-suite/shared@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@solana-suite/shared/-/shared-0.6.0.tgz#4ec33fff72a41d08759d913cfbc8f27d512962a4"
+  integrity sha512-qDZMAXXg9spa0+1/+fg771U3fhZpz7pOVxTCppJb4wcdG/2s+pGLNAN9ZG5TGjiTtnybGOcwg5vA6pLe3n1Yfg==
+  dependencies:
+    "@solana/web3.js" "^1.73.2"
+    commander "9.3.0"
+
+"@solana-suite/shared@latest":
   version "0.5.10"
   resolved "https://registry.yarnpkg.com/@solana-suite/shared/-/shared-0.5.10.tgz#3a4f6ec0e83cc9c21d10c5765c11f5db132b34d5"
   integrity sha512-/leV6B3XFn3q6tIU5uOVca/MA8B2Su8jOjpRRcR0V/KplvZ7x73L/W6R18IPSgKzlBl/brKKwS8W7+o/T/oO6Q==
