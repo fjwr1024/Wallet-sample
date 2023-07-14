@@ -13,6 +13,8 @@ import {
   Text,
   useColorModeValue,
   Link,
+  Divider,
+  AbsoluteCenter
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { NextPage } from 'next';
@@ -40,15 +42,16 @@ const Page: NextPage = () => {
 
   const onSubmit = async (data: Login) => {
     console.log('data', data);
-    try {
-      await axios.post(`http://localhost:3000/auth/login`, {
-        email: data.email,
-        password: data.password,
-      });
-      router.push('/home');
-    } catch (e: any) {
-      console.log(e.response);
-    }
+    router.push('/home');
+    // try {
+    //   await axios.post(`http://localhost:3000/auth/login`, {
+    //     email: data.email,
+    //     password: data.password,
+    //   });
+    //   router.push('/home');
+    // } catch (e: any) {
+    //   console.log(e.response);
+    // }
   };
 
   return (
@@ -59,29 +62,29 @@ const Page: NextPage = () => {
       <main>
         <Flex
           minH="100vh"
+          // minW="10vh"
           align="center"
           justify="center"
-          bg={useColorModeValue('gray.50', 'gray.800')}
+          bgGradient="linear(to-b, #151b20, #3bcfdc)"
         >
-          <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
+          <Stack spacing={8} mx="auto" maxW="lg">
             <Stack align="center">
-              <Heading fontSize="3xl" textAlign="center">
-                Login Solana Wallet
+              <Heading fontSize="3xl" textAlign="center" color="white">
+                Solana Wallet
               </Heading>
             </Stack>
             <Box
               rounded="lg"
-              bg={useColorModeValue('white', 'gray.700')}
-              boxShadow="lg"
-              p={8}
+              bg="transparent"
             >
-              <Stack spacing={4}>
+              <Stack>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <FormControl id="email">
-                    <FormLabel>Email address</FormLabel>
                     <Input
                       type="email"
                       placeholder="Email Address"
+                      color="#FFFFFF"
+                      _placeholder={{ color: '#FFFFFF' }}
                       {...register('email', { required: true })}
                     />
                     {errors.email && (
@@ -91,11 +94,12 @@ const Page: NextPage = () => {
                     )}
                   </FormControl>
                   <FormControl id="password" pt={5}>
-                    <FormLabel>Password</FormLabel>
                     <InputGroup>
                       <Input
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Password"
+                        color="#FFFFFF"
+                        _placeholder={{ color: '#FFFFFF' }}
                         {...register('password', {
                           required: {
                             value: true,
@@ -115,7 +119,7 @@ const Page: NextPage = () => {
                             setShowPassword((showPassword) => !showPassword)
                           }
                         >
-                          {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                          {showPassword ? <ViewIcon color="#FFFFFF" /> : <ViewOffIcon color="#FFFFFF" />}
                         </Button>
                       </InputRightElement>
                     </InputGroup>
@@ -130,7 +134,7 @@ const Page: NextPage = () => {
                       type="submit"
                       loadingText="Submitting"
                       size="lg"
-                      bg="blue.400"
+                      bg="#fdb937"
                       color="white"
                       _hover={{
                         bg: 'blue.500',
@@ -139,12 +143,22 @@ const Page: NextPage = () => {
                       Login
                     </Button>
                   </Stack>
-                  <Stack pt={6}>
-                    <Text align="center">
-                      Is not user? <Link color="blue.400">Signup</Link>
-                    </Text>
-                  </Stack>
                 </form>
+              </Stack>
+            </Box>
+            <Box
+              position='relative' 
+              rounded="lg"
+              bg="transparent"
+            >
+              <Divider />
+              <Stack pt={6}>
+                <Text align="center" color="#FFFFFF">
+                Don't have an account ?
+                </Text>
+                <Text align="center" as="b">
+                  <Link color="#FFFFFF" as="b">SIGN UP</Link>
+                </Text>
               </Stack>
             </Box>
           </Stack>

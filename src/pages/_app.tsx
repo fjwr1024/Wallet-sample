@@ -1,8 +1,9 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import axios from 'axios';
 import { RecoilRoot } from 'recoil';
 import type { AppProps } from 'next/app';
+import { theme } from '@/styles/theme';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const queryClient = new QueryClient();
@@ -10,7 +11,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <RecoilRoot>
           <Component {...pageProps} />
         </RecoilRoot>

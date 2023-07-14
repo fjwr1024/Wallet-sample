@@ -1467,6 +1467,16 @@
     "@ethersproject/properties" "^5.7.0"
     "@ethersproject/strings" "^5.7.0"
 
+"@fontsource/open-sans@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.0.5.tgz#2a171c159ff2d57251f75b872e24375c279fc133"
+  integrity sha512-gxFAandXkpbHKysq5gXk1zEpx44izNyaJs82gjnx8Z0Qi2nwCamweowiSGv42JxLZPgM8RB5amztHxPCeKcBJw==
+
+"@fontsource/raleway@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/raleway/-/raleway-5.0.5.tgz#9585eec4788df31e07c8d0c446f3b61e7a05351d"
+  integrity sha512-C++rrivYPnTsTfrVQVUgnf2m7EFFr0k9lk3ePvVXC+aQ3GAUtPpKpB0RqZs6RGCb3SJfiwQdMt7mZDNpj8WIKg==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"
