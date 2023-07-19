@@ -38,12 +38,12 @@ export const useMutateAuth = () => {
     },
     {
       onSuccess: (res) => {
-        console.log('success', res);
+        console.log('success', res); // eslint-disable-line no-console
         router.push('/signup/confirm');
       },
       onError: (err: any) => {
         if (err.response.status) {
-          console.log('error', err.response.data.message);
+          console.log('error', err.response.data.message); // eslint-disable-line no-console
         }
       },
     }

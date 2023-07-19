@@ -13,7 +13,7 @@ export const useFetchPriceData = () => {
         );
         setPriceData(response.data);
       } catch (error) {
-        console.error('Error fetching price data:', error);
+        console.error('Error fetching price data:', error); // eslint-disable-line no-console
       }
     };
 

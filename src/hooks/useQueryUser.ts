@@ -11,7 +11,7 @@ export const useQueryUser = () => {
     const { data } = await axios.get<User>(
       `${process.env.NEXT_PUBLIC_LOCAL_API_URL}/users/user-info/me`
     );
-    console.log('data', data);
+    console.log('data', data); // eslint-disable-line no-console
     return data;
   };
 
@@ -36,11 +36,11 @@ export const useQueryUser = () => {
     },
     {
       onSuccess: (res) => {
-        console.log('success', res);
+        console.log('success', res); // eslint-disable-line no-console
       },
       onError: (err: any) => {
         if (err.response.status) {
-          console.log('error', err.response.data.message);
+          console.log('error', err.response.data.message); // eslint-disable-line no-console
         }
       },
     }
@@ -57,7 +57,7 @@ export const useQueryUser = () => {
     {
       onError: (err: any) => {
         if (err.response.status) {
-          console.log('error', err.response.data.message);
+          console.log('error', err.response.data.message); // eslint-disable-line no-console
         }
       },
     }

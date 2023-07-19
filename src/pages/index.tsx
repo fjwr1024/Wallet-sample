@@ -3,7 +3,6 @@ import {
   Flex,
   Box,
   FormControl,
-  FormLabel,
   Input,
   InputGroup,
   InputRightElement,
@@ -11,19 +10,17 @@ import {
   Button,
   Heading,
   Text,
-  useColorModeValue,
   Link,
   Divider,
-  AbsoluteCenter
 } from '@chakra-ui/react';
-import axios from 'axios';
+// import axios from 'axios';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { Fragment, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
-import { useMutateAuth } from '@/hooks/useQueryAuth';
+// import { useMutateAuth } from '@/hooks/useQueryAuth';
 import { Login } from '@/types/Login';
 
 const Page: NextPage = () => {
@@ -35,13 +32,13 @@ const Page: NextPage = () => {
 
   const router = useRouter();
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const { useQueryCsrf, useQuerySignup } = useMutateAuth();
+  // const { useQueryCsrf, useQuerySignup } = useMutateAuth();
 
   // api側の設定が面倒なので一旦コメントアウト
   // useQueryCsrf();
 
   const onSubmit = async (data: Login) => {
-    console.log('data', data);
+    console.log('data', data); // eslint-disable-line no-console
     router.push('/home');
     // try {
     //   await axios.post(`http://localhost:3000/auth/login`, {
@@ -153,7 +150,7 @@ const Page: NextPage = () => {
               <Divider />
               <Stack pt={6}>
                 <Text align="center" color="#FFFFFF">
-                Don't have an account ?
+                Don&apos;t have an account ?
                 </Text>
                 <Text align="center" as="b">
                   <Link color="#FFFFFF" as="b">SIGN UP</Link>

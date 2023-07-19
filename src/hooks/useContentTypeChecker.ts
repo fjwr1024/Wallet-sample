@@ -10,7 +10,7 @@ export const useContentTypeChecker = (imgSrc: string) => {
         const resHeader = response.headers.get('Content-Type') as string;
         setContentType(resHeader);
       } catch (error) {
-        console.error(error);
+        console.error(error); // eslint-disable-line no-console
       }
     };
 

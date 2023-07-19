@@ -16,6 +16,7 @@ const CopyToClipboardButton: React.FC<CopyToClipboardButtonProps> = ({
     try {
       await navigator.clipboard.writeText(textToCopy);
       setIsCopied(true);
+      console.log('isCopied', isCopied); // eslint-disable-line no-console
       toast({
         title: 'Copy Completed',
         description: 'Copy Is Completed',
