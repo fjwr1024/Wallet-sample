@@ -62,14 +62,13 @@ const Page: NextPage = () => {
       <main>
         <Flex
           minH="100vh"
-          // minW="10vh"
           align="center"
           justify="center"
           bgGradient="linear(to-b, #151b20, #3bcfdc)"
         >
           <Stack spacing={8} mx="auto" maxW="lg">
             <Stack align="center">
-              <Heading fontSize="3xl" textAlign="center" color="white">
+              <Heading fontSize="4xl" textAlign="center" color="white">
                 Solana Wallet
               </Heading>
             </Stack>
@@ -137,7 +136,7 @@ const Page: NextPage = () => {
                       bg="#fdb937"
                       color="white"
                       _hover={{
-                        bg: 'blue.500',
+                        bg: '#f7ae1b',
                       }}
                     >
                       Login

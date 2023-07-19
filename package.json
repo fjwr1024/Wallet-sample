@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.10.5",
     "@fontsource/open-sans": "^5.0.5",
     "@fontsource/raleway": "^5.0.5",
+    "@fontsource/rubik": "^5.0.5",
     "@next/font": "13.3.0",
     "@solana-suite/core": "^0.6.0",
     "@solana-suite/nft": "^0.6.0",

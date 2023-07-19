@@ -1477,6 +1477,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/raleway/-/raleway-5.0.5.tgz#9585eec4788df31e07c8d0c446f3b61e7a05351d"
   integrity sha512-C++rrivYPnTsTfrVQVUgnf2m7EFFr0k9lk3ePvVXC+aQ3GAUtPpKpB0RqZs6RGCb3SJfiwQdMt7mZDNpj8WIKg==
 
+"@fontsource/rubik@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/rubik/-/rubik-5.0.5.tgz#bc434971e81946ea115fa2d7e65c754244eb4cd8"
+  integrity sha512-ggCJFmid6AcRmF/9xFp8wzg7Pop3Bg7YxrysXdnvAgvsolOzWb2M+8IE2JO0ApghsXlt/jogg1/g/J0MI1raQQ==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"
