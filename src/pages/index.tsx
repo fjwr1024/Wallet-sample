@@ -153,7 +153,7 @@ const Page: NextPage = () => {
                 Don&apos;t have an account ?
                 </Text>
                 <Text align="center" as="b">
-                  <Link color="#FFFFFF" as="b">SIGN UP</Link>
+                  <Link color="#FFFFFF" href="/signup">SIGN UP</Link>
                 </Text>
               </Stack>
             </Box>
