@@ -13,7 +13,6 @@ import {
   Link,
   Divider,
 } from '@chakra-ui/react';
-// import axios from 'axios';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -69,10 +68,7 @@ const Page: NextPage = () => {
                 Solana Wallet
               </Heading>
             </Stack>
-            <Box
-              rounded="lg"
-              bg="transparent"
-            >
+            <Box rounded="lg" bg="transparent">
               <Stack>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <FormControl id="email">
@@ -115,7 +111,11 @@ const Page: NextPage = () => {
                             setShowPassword((showPassword) => !showPassword)
                           }
                         >
-                          {showPassword ? <ViewIcon color="#FFFFFF" /> : <ViewOffIcon color="#FFFFFF" />}
+                          {showPassword ? (
+                            <ViewIcon color="#FFFFFF" />
+                          ) : (
+                            <ViewOffIcon color="#FFFFFF" />
+                          )}
                         </Button>
                       </InputRightElement>
                     </InputGroup>
@@ -142,18 +142,16 @@ const Page: NextPage = () => {
                 </form>
               </Stack>
             </Box>
-            <Box
-              position='relative' 
-              rounded="lg"
-              bg="transparent"
-            >
+            <Box position="relative" rounded="lg" bg="transparent">
               <Divider />
               <Stack pt={6}>
                 <Text align="center" color="#FFFFFF">
-                Don&apos;t have an account ?
+                  Don't have an account ?
                 </Text>
                 <Text align="center" as="b">
-                  <Link color="#FFFFFF" href="/signup">SIGN UP</Link>
+                  <Link color="#FFFFFF" as="b">
+                    SIGN UP
+                  </Link>
                 </Text>
               </Stack>
             </Box>
